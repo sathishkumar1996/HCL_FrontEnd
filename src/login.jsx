@@ -1,8 +1,7 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
-
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 const login = () => {
   const [email, setEmail] = useState('new12@gmail.com');
@@ -10,9 +9,8 @@ const login = () => {
 
   const navigate = useNavigate();
 
-
   const loginhandler = async () => {
-    navigate('/home')
+    navigate('/home');
     // try {
     //   const res = await axios.post("http://localhost:7777/login", {
     //     email,
@@ -21,7 +19,7 @@ const login = () => {
     //   console.log(res.data)
     //   if(res){
     //     navigate('/profile')
-      
+
     //   }
     // } catch (err) {
     //   console.log(err);
