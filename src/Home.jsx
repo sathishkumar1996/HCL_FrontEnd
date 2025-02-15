@@ -6,7 +6,7 @@ const home = () => {
     <div className="navbar bg-primary d-flex justify-center">    
     <div className="navbar-center hidden lg:flex align-center">
       <ul className="menu menu-vertical lg:menu-horizontal text-white font-bold">
-        <li><a>Home</a></li>
+        <li><a >Home</a></li>
         <li><a>Health Topics</a></li>
         <li><a>Resources</a></li>
         <li><a>About Us</a></li>
