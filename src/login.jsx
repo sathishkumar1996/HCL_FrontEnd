@@ -1,15 +1,13 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
-
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 const login = () => {
   const [email, setEmail] = useState('new12@gmail.com');
   const [password, setPassword] = useState('new1@123');
 
   const navigate = useNavigate();
-
 
   const loginhandler = async () => {
 
