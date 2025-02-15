@@ -5,6 +5,7 @@ import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import Body from './Body'
 import Login from './login'
 import Profile from './profile'
+import Home from './Home'
 import { Provider } from 'react-redux'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
          <Route path="/" element={<Body/>} >
           <Route path='/login' element={<Login/>}/>
+          <Route path='/home' element={<Home/>}/>
           <Route path='/profile' element={<Profile/>}/>
          </Route>
         

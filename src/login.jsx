@@ -12,19 +12,20 @@ const login = () => {
 
 
   const loginhandler = async () => {
-    try {
-      const res = await axios.post("http://localhost:7777/login", {
-        email,
-        password,
-      },{withCredentials:true});
-      console.log(res.data)
-      if(res){
-        navigate('/profile')
+    navigate('/home')
+    // try {
+    //   const res = await axios.post("http://localhost:7777/login", {
+    //     email,
+    //     password,
+    //   },{withCredentials:true});
+    //   console.log(res.data)
+    //   if(res){
+    //     navigate('/profile')
       
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
   return (
     <div className="flex justify-center my-10">
