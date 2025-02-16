@@ -10,20 +10,21 @@ const login = () => {
   const navigate = useNavigate();
 
   const loginhandler = async () => {
-    navigate('/home');
-    // try {
-    //   const res = await axios.post("http://localhost:7777/login", {
-    //     email,
-    //     password,
-    //   },{withCredentials:true});
-    //   console.log(res.data)
-    //   if(res){
-    //     navigate('/profile')
 
-    //   }
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      console.log(email,password)
+      const res = await axios.post("http://localhost:5001/api/users/login", {
+        email,
+        password,
+      },{withCredentials:true});
+      console.log(res.data)
+      if(res){
+        navigate('/home')
+      
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div className="flex justify-center my-10">
