@@ -1,45 +1,65 @@
-import React from 'react';
+import { useState } from 'react';
+import { POSSILBE_ALERGIES } from './utils/constants';
+import { useEffect } from 'react';
+const Profile = () => {
+  const [patientData, setPatientData] = useState([]);
 
-const profile = () => {
+  const handleAlergyToggle = (param) => {
+    if (patientData.find((item) => item.id === param)) {
+      setPatientData((prev) => prev.filter((item) => item.id !== param));
+    } else {
+      setPatientData((prev) => [
+        ...prev,
+        POSSILBE_ALERGIES.find((item) => item.id === param),
+      ]);
+    }
+  };
+
+  const handleUpdate = () => {
+    console.log(patientData);
+  };
+
   return (
-    <div className="drawer lg:drawer-open">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
-        {/* Page content here */}
-        <label
-          htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
-        >
-          Open drawer
-        </label>
+    <div className="w-full h-[calc(100vh-3rem)] overflow-y-auto grid grid-cols-[300px_1fr]  max-w-[1200px] mx-auto pt-12 pb-2">
+      {/* View Edit profile */}
+
+      <div className="w-full flex flex-col items-center gap-2">
+        <img
+          src="dummyProfileImage.jfif"
+          alt=""
+          className="w-24 h-24 rounded-fulls"
+        />
+        <div>Username</div>
+        <div>212</div>
       </div>
-      <div className="drawer-side ">
-        <label
-          htmlFor="my-drawer-2"
-          aria-label="close sidebar"
-          className="drawer-overlay"
-        ></label>
-        <ul className="menu bg-base-300 text-base-content min-h-full w-80 p-4 font-bold">
-          {/* Sidebar content here */}
-          <li>
-            <a>Dashboard</a>
-          </li>
-          <li>
-            <a>My Profile</a>
-          </li>
-          <li>
-            <a>Health Metrics</a>
-          </li>
-          <li>
-            <a>Messages</a>
-          </li>
-          <li>
-            <a>Logout</a>
-          </li>
-        </ul>
+      <div className="pl-2 border-l-2 border-black/40 overflow-y-auto">
+        <div className="fle flex-col gap-2">
+          <h2 className="text-lg flex justify-between">
+            <span>Personal Alergies</span>
+            <button
+              className="text-base hover:cursor-pointer bg-black px-3 rounded-md py-2  text-white"
+              onClick={handleUpdate}
+            >
+              Update
+            </button>
+          </h2>
+          <div className="grid grid-cols-2 gap-2">
+            {POSSILBE_ALERGIES.map((item) => (
+              <div
+                className="flex gap-1"
+                key={item.id}
+                onClick={() => handleAlergyToggle(item.id)}
+                defaultChecked={patientData.find((i) => i.id === item.id)}
+              >
+                <input type="checkbox" />
+                <label>{item.name}</label>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default profile;
+export default Profile;
